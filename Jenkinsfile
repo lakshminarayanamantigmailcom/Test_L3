@@ -2,7 +2,7 @@ pipeline {
     agent {label 'JDK'}
     parameters {
             choice(name: 'BRANCH', choices: ['master', 'main', 'lokesh'], description: 'Pick something')
-            string(name: 'BUILD', defaultValue: 'package', description: 'build')
+            choice(name: 'BUILD',  choices: ['package', 'install', 'Test'], description: 'build')
     }
     stages {
         stage('vcs') {
